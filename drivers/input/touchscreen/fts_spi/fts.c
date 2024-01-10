@@ -162,6 +162,7 @@ extern void lpm_disable_for_dev(bool on, char event_dev);
 #ifdef CONFIG_FTS_POWERSUPPLY_CB
 static int fts_write_charge_status(int status);
 #endif
+
 static void fts_drm_panel_notifier_callback(enum panel_event_notifier_tag tag,
 		 struct panel_event_notification *notification, void *client_data);
 

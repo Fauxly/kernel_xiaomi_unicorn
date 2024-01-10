@@ -24,15 +24,15 @@ exit 1
 fi
 fi
 
-if ! [ -d "$HOME/tc/aarch64-linux-android-4.9" ]; then
-echo "aarch64-linux-android-4.9 not found! Cloning..."
-if ! git clone -q https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9.git --depth=1 --single-branch ~/tc/aarch64-linux-android-4.9; then
+if ! [ -d "$HOME/tc/aarch64-linux-gnu-9.3" ]; then
+echo "aarch64-linux-gnu-9.3 not found! Cloning..."
+if ! git clone -q https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-gnu-9.3.git --depth=1 --single-branch ~/tc/aarch64-linux-gnu-9.3; then
 echo "Cloning failed! Aborting..."
 exit 1
 fi
 fi
 
-GCC_64_DIR="$HOME/tc/aarch64-linux-android-4.9"
+GCC_64_DIR="$HOME/tc/aarch64-linux-gnu-9.3"
 KBUILD_COMPILER_STRING=$($HOME/tc/aosp-clang/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')
 KBUILD_LINKER_STRING=$($HOME/tc/aosp-clang/bin/ld.lld --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//' | sed 's/(compatible with [^)]*)//')
 export KBUILD_COMPILER_STRING
